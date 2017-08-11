@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-let urlList = [4170, 13317, 19681, 49120, 51510, 53057, 61118, 80198, 94074, 101737, 104045, 104509];
+let urlList = [36036];
 
 let jsonNlu = fs.readFileSync('./article/results.txt', 'utf8').split('\n');
 let jsonNlu2 = fs.readFileSync('./article/results2.txt', 'utf8').split('\n');
@@ -23,8 +23,8 @@ for (let x = 0; x < len; x++) {
   }
 }
 let sortable = [];
-for (let vehicle in maxSpeed) {
-  sortable.push([vehicle, maxSpeed[vehicle]]);
+for (let vehicle in list) {
+  sortable.push([vehicle, list[vehicle]]);
 }
 
 sortable.sort(function (a, b) {
