@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-let urlList = [3224,80709];
+let urlList = [367,3092,6149,6544,8997,13665,21280,21373,26936,27210,30594,33616,35744,40473,49006,50980,55208,61475,63126,65220,65727,84286,93785,105307,105316,105319];
 
 let jsonNlu = fs.readFileSync('./article/results.txt', 'utf8').split('\n');
 let jsonNlu2 = fs.readFileSync('./article/results2.txt', 'utf8').split('\n');
@@ -17,8 +17,8 @@ for (let x = 0; x < len; x++) {
   let Attr = JSON.parse(result[x]);
   for (let y in urlList) {
     if (Attr.index == urlList[y]) {
+       console.log(Attr.index);
       console.log(Attr.url);
     }
-
   }
 }

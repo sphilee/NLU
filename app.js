@@ -93,13 +93,13 @@ const search = (file, target, i) => {
 let target = [{
   keywords: ["gold", "price", "rise"],
   categories: ["/business and industrial/energy/oil/oil and gas prices", "/finance/investing/stocks", "/law, govt and politics/government"],
-  limitKeyword: 35,
+  limitKeyword: 25,
   limitCategorie: 0
 }, {
   keywords: ["gold", "price", "rise"],
   categories: ["/business and industrial/energy/oil/oil and gas prices", "/finance/investing/stocks", "/law, govt and politics/government"],
   limitKeyword: 22,
-  limitCategorie: 2
+  limitCategorie: 0
 }];
 let myAnalyze = [];
 
