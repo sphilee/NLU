@@ -26,7 +26,7 @@ const getIndicesOf = (searchStr, str, caseSensitive) => {
   }
   return indices;
 };
-const search = (file, target, i) => {
+const search = (file, target) => {
   let len = file.length;
   let cnt = 0;
   let cateList = [];
@@ -79,7 +79,7 @@ const search = (file, target, i) => {
   let sec = (end - start) / 1000;
   console.log(sec);
 
-  myAnalyze[i] = {
+  return {
     "condition": "limitKeyword >= " + target.limitKeyword + " && limitCategorie >= " + target.limitCategorie,
     "targetKeywords": target.keywords,
     "targetCategories": target.categories,
@@ -91,20 +91,15 @@ const search = (file, target, i) => {
 }
 
 let target = [{
-  keywords: ["gold", "price", "rise"],
-  categories: ["/business and industrial/energy/oil/oil and gas prices", "/finance/investing/stocks", "/law, govt and politics/government"],
-  limitKeyword: 25,
-  limitCategorie: 0
-}, {
-  keywords: ["gold", "price", "rise"],
-  categories: ["/business and industrial/energy/oil/oil and gas prices", "/finance/investing/stocks", "/law, govt and politics/government"],
-  limitKeyword: 22,
+  keywords: ["Electric", "Vehicle", "Forecast"],
+  categories: ["/automotive and vehicles/electric vehicles", "/automotive and vehicles/cars", "/technology and computing"],
+  limitKeyword: 20,
   limitCategorie: 0
 }];
 let myAnalyze = [];
 
 for (let i in target)
-  search(result, target[i], i);
+  myAnalyze[i] = search(result, target[i]);
 
 const csv = json2csv({
   data: myAnalyze,

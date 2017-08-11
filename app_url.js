@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-let urlList = [367,3092,6149,6544,8997,13665,21280,21373,26936,27210,30594,33616,35744,40473,49006,50980,55208,61475,63126,65220,65727,84286,93785,105307,105316,105319];
+let urlList = [4170, 13317, 19681, 49120, 51510, 53057, 61118, 80198, 94074, 101737, 104045, 104509];
 
 let jsonNlu = fs.readFileSync('./article/results.txt', 'utf8').split('\n');
 let jsonNlu2 = fs.readFileSync('./article/results2.txt', 'utf8').split('\n');
@@ -13,12 +13,22 @@ let jsonNlu8 = fs.readFileSync('./article/results8.txt', 'utf8').split('\n');
 let result = jsonNlu.concat(jsonNlu2, jsonNlu3, jsonNlu4, jsonNlu5, jsonNlu6, jsonNlu7, jsonNlu8);
 
 let len = result.length;
+let list = {};
 for (let x = 0; x < len; x++) {
   let Attr = JSON.parse(result[x]);
   for (let y in urlList) {
     if (Attr.index == urlList[y]) {
-       console.log(Attr.index);
-      console.log(Attr.url);
+      list[Attr.url] = Attr.index;
     }
   }
 }
+let sortable = [];
+for (let vehicle in maxSpeed) {
+  sortable.push([vehicle, maxSpeed[vehicle]]);
+}
+
+sortable.sort(function (a, b) {
+  return a[1] - b[1];
+});
+
+console.log(sortable);
